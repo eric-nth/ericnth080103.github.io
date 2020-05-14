@@ -14,13 +14,26 @@ a
 text-decoration:none;
 }
 </style>
+<script>
+function sleep(time){
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+</script>
 </head>
 <body>
 <h2>Redirecting, Please wait just a few seconds...</h2>
+<p id="textinfo">You will be brought to my personal blog: <a href="ericnth.cn">ericnth.cn</a> in 3 seconds.</p>
 <p>If the browser does not take you there, please click<a href="https://ericnth.cn/"> here </a>to continue.</p>
 <br/><br/><br/>
 <p>Copyright &copy; 2020 EricNTH.</p>
 <script>
-window.location.replace("https://ericnth.cn/");
+var x = document.getElementById("textinfo");
+setTimeout(function(){
+	x.innerHTML="You will be brought to my personal blog: <a href='ericnth.cn'>ericnth.cn</a> in 2 seconds.";
+	setTimeout(function() {
+		x.innerHTML="You will be brought to my personal blog: <a href='ericnth.cn'>ericnth.cn</a> in 1 second.";
+		window.location.replace("https://ericnth.cn/");
+	}, 1000);
+}, 1000);
 </script>
 </html>
